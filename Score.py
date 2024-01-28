@@ -1,27 +1,17 @@
 import requests
 
-def update_score(skor, waktu, pencetak_gol):
-    url = "http://your_username.000webhostapp.com/update-score"
-    payload = {"skor": skor, "waktu": waktu, "pencetakGol": pencetak_gol}
-
-    try:
-        response = requests.post(url, json=payload)
-        response.raise_for_status()  # Raises an HTTPError if the HTTP request returned an unsuccessful status code
-        return response.json()
-    except requests.exceptions.HTTPError as errh:
-        print(f"HTTP Error: {errh}")
-    except requests.exceptions.ConnectionError as errc:
-        print(f"Error Connecting: {errc}")
-    except requests.exceptions.Timeout as errt:
-        print(f"Timeout Error: {errt}")
-    except requests.exceptions.RequestException as err:
-        print(f"Error: {err}")
+def update_score(skor, waktu, pencetak_gol, negara_A, negara_B):
+    url = "http://nar.pythonanywhere.com/update-score"
+    payload = {"skor": skor, "waktu": waktu, "pencetakGol": pencetak_gol, "negaraA": negara_A, "negaraB": negara_B}
+    response = requests.post(url, json=payload)
+    return response.json()
 
 # Contoh penggunaan
 skor_baru = "1-0"
 waktu_baru = "30:00"
 pencetak_gol_baru = "Player A"
+negara_A_baru = "Indonesia"
+negara_B_baru = "Belanda"
 
-result = update_score(skor_baru, waktu_baru, pencetak_gol_baru)
-if result:
-    print(result)
+result = update_score(skor_baru, waktu_baru, pencetak_gol_baru, negara_A_baru, negara_B_baru)
+print(result)
