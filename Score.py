@@ -13,9 +13,9 @@ update_data = {
         "tim1": 2,
         "tim2": 1
     },
-    "waktu": "45:00",
+    "waktu": "13:00",
     "pencetak_gol": [
-        {"tim": "tim1", "pencetak": "Player A", "waktu": "30:00"},
+        {"tim": "tim1", "pencetak": "Player A", "waktu": "10:00"},
         {"tim": "tim2", "pencetak": "Player B", "waktu": "40:00"}
     ]
 }
